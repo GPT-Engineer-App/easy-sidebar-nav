@@ -1,19 +1,50 @@
-// Update this page (the content is just a fallback if you fail and example)
-// Use chakra-ui
-import { Container, Text, VStack } from "@chakra-ui/react";
+import { Box, Flex, VStack, Text, Link, Icon } from "@chakra-ui/react";
+import { FaHome, FaChartBar, FaCog } from "react-icons/fa";
 
-// Example of using react-icons
-// import { FaRocket } from "react-icons/fa";
-// <IconButton aria-label="Add" icon={<FaRocket />} size="lg" />; // IconButton would also have to be imported from chakra
+const Sidebar = () => (
+  <Box
+    as="nav"
+    pos="fixed"
+    top="0"
+    left="0"
+    h="100%"
+    w="200px"
+    bg="gray.800"
+    color="white"
+    p={4}
+  >
+    <VStack spacing={4} align="stretch">
+      <Link href="#" _hover={{ textDecor: "none" }}>
+        <Flex align="center">
+          <Icon as={FaHome} mr={2} />
+          <Text>Home</Text>
+        </Flex>
+      </Link>
+      <Link href="#" _hover={{ textDecor: "none" }}>
+        <Flex align="center">
+          <Icon as={FaChartBar} mr={2} />
+          <Text>Dashboard</Text>
+        </Flex>
+      </Link>
+      <Link href="#" _hover={{ textDecor: "none" }}>
+        <Flex align="center">
+          <Icon as={FaCog} mr={2} />
+          <Text>Settings</Text>
+        </Flex>
+      </Link>
+    </VStack>
+  </Box>
+);
 
 const Index = () => {
   return (
-    <Container centerContent maxW="container.md" height="100vh" display="flex" flexDirection="column" justifyContent="center" alignItems="center">
-      <VStack spacing={4}>
-        <Text fontSize="2xl">Your Blank Canvas</Text>
-        <Text>Chat with the agent to start making edits.</Text>
-      </VStack>
-    </Container>
+    <Flex>
+      <Sidebar />
+      <Box ml="200px" p={4} w="full">
+        <Text fontSize="2xl" mb={4}>Welcome to the Dashboard</Text>
+        <Text>This is a generic dashboard application with a nice sidebar for navigation.</Text>
+      </Box>
+    </Flex>
   );
 };
 
